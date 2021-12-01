@@ -3,7 +3,10 @@
 Created on Wed Dec  1 10:51:28 2021
 
 @author: Manish Kuamr Goswami
+
 """
+
+#!/bin/python
 #Importing Module of Python
 
 import sys
