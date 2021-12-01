@@ -32,16 +32,20 @@ print("-" * 50)
 
 # Error handling
 
+count = 0
+
 try:
     for port in range(1,1000):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(2)
         result = s.connect_ex((target.port))
+        count += 1
         if result == 0:
             print("port {} is open".format(port))
         else:
             print("port {} is close".format(port))
         s.close
+    print("{} Ports are open".format(count))
             
 except KeyboardInterrupt:
     print("\n Exiing program.")
