@@ -36,10 +36,9 @@ try:
         result = s.connect_ex((target.port))
         if result == 0:
             print("port {} is open".format(port))
-            s.close
         else:
             print("port {} is close".format(port))
-            s.close
+        s.close
             
 except KeyboardInterrupt:
     print("\n Exiing program.")
