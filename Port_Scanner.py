@@ -9,9 +9,16 @@ Created on Wed Dec  1 10:51:28 2021
 #!/bin/python
 #Importing Module of Python
 
+import time
+import pyfiglet
 import sys
 from datetime import datetime
 import socket
+
+start = time.time()
+
+banner = pyfiglet.figlet_format("MKG PORT SCANNER")
+print(banner)
 
 #Defining Targert
 
@@ -39,8 +46,9 @@ try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(2)
         result = s.connect_ex((target.port))
-        count += 1
+        
         if result == 0:
+            count += 1
             print("port {} is open".format(port))
         else:
             print("port {} is close".format(port))
@@ -58,3 +66,11 @@ except socket.gaierror:
 except socket.error:
     print("Couldn't Connect to server.")
     sys.exit()
+ 
+totleTime = int(time.time() - start)
+
+if totleTime >= 60:
+    print("Scanning Completed in: {} min".format(totleTime/60))
+
+else:
+    print("Scanning Completed in: {} sec".format(totleTime))
